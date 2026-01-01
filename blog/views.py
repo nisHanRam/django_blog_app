@@ -49,7 +49,7 @@ def homepage(request):
 
 
 def posts(request):
-    pass
+    return render(request, "blog/all-posts.html", {"blogs": blogs})
 
 
 def post_detail(request):

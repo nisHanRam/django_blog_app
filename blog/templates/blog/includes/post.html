@@ -1,0 +1,17 @@
+{% load static %}
+
+{% block page_css %} 
+    <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
+{% endblock %}
+
+<li>
+    <article class="post">
+        <a href="">
+            <img src="{% static image %}" alt="Mountain Hiking"/>
+            <div class="post__content">
+                <h3>{{ title }}</h3>
+                <p>{{ description }}</p>
+            </div>
+        </a>
+    <article>                
+</li>

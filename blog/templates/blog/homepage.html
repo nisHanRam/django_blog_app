@@ -6,13 +6,6 @@
 {% endblock %}
 
 {% block page_content %} 
-    <header id="main-navigation">
-        <h1><a href="">Nishant's Blog</a></h1>
-        <nav>
-            <a href="">All Posts</a>
-        </nav>
-    </header>
-
     <section id="welcome">
         <header>
             <img src="{% static "blog/images/nishant.jpeg" %}" alt="Nishant - The Author Of This Blog"/>
@@ -25,21 +18,11 @@
         <h2>My Latest Thoughts</h2>
         <ul>
             {% for blog in blogs %}
-                <li>
-                    <article class="post">
-                        <a href="">
-                            <img src="{% static blog.image %}" alt="Mountain Hiking"/>
-                            <div class="post__content">
-                                <h3>{{ blog.title }}</h3>
-                                <p>{{ blog.description }}</p>
-                            </div>
-                        </a>
-                    <article>                
-                </li>
+                {% include "blog/includes/post.html" with title=blog.title description=blog.description image=blog.image %}
             {% endfor %}    
         </ul>
     </section>
-    
+
     <section id="about">
         <h2>What I do?</h2>
         <p>
