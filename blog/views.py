@@ -71,6 +71,6 @@ def posts(request):
 
 
 def post_detail(request, slug):
-    identified_post = next(post if post["slug"] == slug else None for post in all_posts)
+    # identified_post = next(post if post["slug"] == slug else None for post in all_posts) // This is incorrect (see: https://app.gitbook.com/o/mi8OxH6ZbgS7lydIouNU/s/p1Uxk6wW4WeRM9VsBUAb/understanding-next-and-generator-expressions-in-django)
     identified_post = next(post for post in all_posts if post["slug"] == slug)
     return render(request, "blog/post-detail.html", {"post": identified_post})
