@@ -6,12 +6,20 @@
 
 <li>
     <article class="post">
-        <a href="">
-            <img src="{% static image %}" alt="Mountain Hiking"/>
+        <a href="{% url "post-detail-page" post.slug %}">
+            <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}"/>
             <div class="post__content">
-                <h3>{{ title }}</h3>
-                <p>{{ description }}</p>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.excerpt }}</p>
             </div>
         </a>
     <article>                
 </li>
+
+{% comment %} 
+This:
+<a href="{% url "post-detail-page" "{{ title }}" %}">
+
+Can also be written as:
+<a href="{% url "post-detail-page" slug="{{ title }}" %}">
+{% endcomment %}
